@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Stopwatch </title>
+<script type='text/javascript'>
+<!--
+var Stopwatch = {
+	IntervalContainer: null,
+	Mode: "",
+	Time: 0,
+	TimeString: "",
+	setMode: function(mode){
+		if(mode=="start"){
+			Stopwatch.Mode="Start";
+			document.forms[0].toggle.value="Start";
+			document.forms[0].toggle.onclick=function(){
+				Stopwatch.start();
+			}
+		} else if(mode=="stop"){
+			Stopwatch.Mode="Stop";
+			document.forms[0].toggle.value="Stop";
+			document.forms[0].toggle.onclick=function(){
+				Stopwatch.stop();
+			}
+		}
+	},
+	start: function(){
+		Stopwatch.IntervalContainer = setInterval("Stopwatch.loop()",1 * 1000);
+		Stopwatch.setMode("stop")
+	},
+	loop: function(){
+		Stopwatch.Time+=1;
+		Stopwatch.getTime();
+	},
+	getTime: function(){
+		var hours,minutes,seconds;
+		// hours
+		if(Stopwatch.Time>=3600){
+			hours=Math.floor(Stopwatch.Time/3600);
+		} else hours=0;
+		if(hours.toString().length==1) hours = "0"+hours;
+		// minutes
+		if(Stopwatch.Time>=60){
+			minutes=Math.floor((Stopwatch.Time/60)-(hours * 60));
+		} else minutes=0;
+		if(minutes.toString().length==1) minutes = "0"+minutes;
+		// seconds
+		seconds=(Stopwatch.Time-(60 * minutes)-(3600 * hours));
+		if(seconds.toString().length==1) seconds = "0"+seconds;
+		Stopwatch.TimeString=hours+":"+minutes+":"+seconds;
+		document.forms[0].time.value=Stopwatch.TimeString;
+	},
+	stop: function(){
+		clearInterval(Stopwatch.IntervalContainer);
+		Stopwatch.setMode("start");
+	},
+	reset: function(){
+		Stopwatch.stop();
+		Stopwatch.Time=0;
+		Stopwatch.setMode("start");
+		Stopwatch.IntervalContainer=null;
+		document.forms[0].time.value="00:00:00";
+	}
+}
+
+function _init(){
+	Stopwatch.setMode("start");
+}
+//-->
+</script>
+<style>
+input[type=text], select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+	text-align:center;
+}
+
+input[type=button] {
+    width: 13%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=button]:hover {
+    background-color: #45a049;
+}
+
+.main {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+.Time {
+	position:absolute;
+	bottom:10%;
+	left:35%;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+</style>
+</head>
+<body onload="_init();">
+<h1 style="color:red;text-align:center;">Countdown Timer</h1>
+<br><br><br>
+<form name="f">
+<div class="main"><center>
+<input type="text" readonly name="time" value="00:00:00" size="8" maxlength="8"><br>
+<input type="button" name="toggle" value="" class="buttoninput"><br><input type="button" name="reset" onclick="Stopwatch.stop();Stopwatch.reset();" value="Reset" class="buttoninput">
+</center></div>
+</form>
+</body>
+</html>

@@ -13,7 +13,7 @@ var Timer = {
 	TimeString: "",
 	StartTime: 0,
 	EndTime: 0,
-	Ringer: new Audio("assets\\ring.mp3"),
+	Ringer: new Audio("assets\\countdown\\ring.mp3"),
 	start: function(time){
 		Timer.Remaining=time;
 		Timer.IntervalContainer = setInterval('Timer.loop();',1 * 1000);

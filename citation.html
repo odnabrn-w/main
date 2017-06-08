@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Citation Helper </title>
+<script type='text/javascript'>
+<!--
+function today(){
+	var TIME = new Date();
+	var year = TIME.getFullYear();
+	var month = TIME.getMonth() + 1;
+	var date = TIME.getDate();
+	if(month==1) month="Jan";
+	else if(month==2) month="Feb";
+	else if(month==3) month="Mar";
+	else if(month==4) month="Apr";
+	else if(month==5) month="May";
+	else if(month==6) month="Jun";
+	else if(month==7) month="Jul";
+	else if(month==8) month="Aug";
+	else if(month==9) month="Sep";
+	else if(month==10) month="Oct";
+	else if(month==11) month="Nov";
+	else if(month==12) month="Dec";
+	return (date+" "+month+". "+year);
+}
+
+function mla(){
+	var form = document.forms[0];
+	var author = form.authorl.value+', '+form.authorf.value,
+		pagetitle = form.pagetitle.value,
+		webtitle = form.webtitle.value,
+		pubdate = form.pubdate.value,
+		publisher = form.publisher.value,
+		accdate = today();
+	var cite = (author + ". \"" + pagetitle + "\" " + webtitle + ". " + publisher + ", " + pubdate + ". Web. " + accdate + ".");
+	form.citation.value=cite;
+}
+
+function apa(){
+	var form = document.forms[0];
+	var author = form.authorl.value+', '+form.authorf.value.substring(0,1);
+		pubdate = form.pubdate.value,
+		title = form.pagetitle.value,
+		accdate = today();
+		url = form.url.value;
+	var cite = (author + ". (" + accdate + ")" + " " + title + ". Retrieved from " + url);
+	form.citation.value=cite;
+}
+
+function process(){
+	document.forms[0].citation.value="";
+	var toggle = document.forms[0].toggle.value;
+	if(toggle=="MLA") mla();
+	else apa();
+}
+
+//-->
+</script>
+<style>
+	div {
+		width: 65%;
+		background-color:#dddddd;
+		font-family:calibri;
+		text-align:left;
+		border-radius: 5px;
+		border: 2px solid #dddddd;
+		padding: 4px;
+		margin-top: 2%;
+	}
+	h2 {
+		text-align:center;
+	}
+	select {
+		border: 2px solid #dddddd;
+		border-radius: 3px;
+		background-color: white;
+	}
+	input[type=text], select {
+		display: inline-block;
+		width:100%;
+		margin: 4px 0;
+		padding: 5px;
+		border: 2px solid #dddddd;
+		border-radius: 5px;
+		box-sizing: border-box;
+	}
+	input[type=button] {
+		display: inline-block;
+		background-color: green;
+		color: white;
+		border: 2px solid #dddddd;
+		border-radius: 5px;
+		width: 100%;
+		height: 3.5%;
+	}
+</style>
+</head>
+<body>
+<form name="f">
+<center>
+<div>
+<h2>Citation Helper</h2>
+Author First<input type="text" name="authorf" placeholder="John">
+Author Last<input type="text" name="authorl" placeholder="Doe">
+Publisher<input type="text" name="publisher" placeholder="Cable News Network">
+URL<input type="text" name="url" placeholder="www.google.com">
+Page Title<input type="text" name="pagetitle" placeholder="Citation Helper">
+Website Title<input type="text" name="webtitle" placeholder="Github">
+Publication Date<input type="text" name="pubdate" placeholder="1 Jan. 2017 (mla) or 2017, January 1 (apa)">
+Format<select name="toggle">
+	<option value="MLA" selected>MLA</option>
+	<option value="APA">APA</option>
+</select>
+<input type="button" name="submit" onclick="process();" value="Cite!">
+<br><br>
+<input type="text" name="citation" readonly>
+</div>
+</center>
+</form>
+</body>
+</html>

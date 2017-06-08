@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Countdown Timer </title>
+<script type='text/javascript'>
+<!--
+// Initialize global variables
+var buttontoggle, TIME = new Date();
+
+var Timer = {
+	IntervalContainer: null,
+	Remaining: 0,
+	TimeString: "",
+	StartTime: 0,
+	EndTime: 0,
+	Ringer: new Audio("assets\\ring.mp3"),
+	start: function(time){
+		Timer.Remaining=time;
+		Timer.IntervalContainer = setInterval('Timer.loop();',1 * 1000);
+	},
+	loop: function(){
+		if(Timer.Remaining==0){
+			clearInterval(Timer.IntervalContainer);
+			Timer.IntervalContainer=null;
+			Timer.Ringer.play();
+			window.alert("Your countdown is complete!");
+			document.forms[0].remaining.value="00:00:00"
+			Timer.reset();
+		} else {
+			var hours,minutes,seconds;
+			// hours
+			if(Timer.Remaining>=3600){
+				hours=Math.floor(Timer.Remaining/3600);
+			} else hours=0;
+			if(hours.toString().length==1) hours = "0"+hours;
+			// minutes
+			if(Timer.Remaining>=60){
+				minutes=Math.floor((Timer.Remaining/60)-(hours * 60));
+			} else minutes=0;
+			if(minutes.toString().length==1) minutes = "0"+minutes;
+			// seconds
+			seconds=(Timer.Remaining-(60 * minutes)-(3600 * hours));
+			if(seconds.toString().length==1) seconds = "0"+seconds;
+			Timer.TimeString=hours+":"+minutes+":"+seconds;
+			document.forms[0].remaining.value=Timer.TimeString;
+		} Timer.Remaining -= 1;
+	},
+	forcestop: function(){
+		Timer.Continue=0;
+	},
+	reset: function(){
+		Timer.Remaining=0;
+		Timer.TimeString="";
+		Timer.StartTime=0;
+		Timer.EndTime=0;
+	}
+};
+
+function _init(){
+	toggleButton("start");
+};
+
+function toggleButton(x){
+	if(x!=null){
+		if(x=="start"){
+			buttontoggle="start";
+		} else if(x=="stop"){
+			buttontoggle="stop";
+		}
+	}
+	else {
+		if(document.forms[0]._button.value=="Start Countdown"){
+			buttontoggle="stop"
+		} else if(document.forms[0]._button.value=="Stop Timer"){
+			buttontoggle="start"
+		}
+	}
+	/******************************************************/
+	if(buttontoggle="start"){
+		document.forms[0]._button.value="Start Countdown";
+		document.forms[0]._button.onclick=function(){
+			Timer.start((3600 * document.forms[0].hours.value) + (60 * document.forms[0].minutes.value) + document.forms[0].seconds.value);
+		}
+	} else if(buttontoggle="stop"){
+		document.forms[0]._button.value="Stop Timer";
+		document.forms[0]._button.onclick=function(){
+			Timer.forcestop();
+		}
+	}
+};
+// -->
+</script>
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=button] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=button]:hover {
+    background-color: #45a049;
+}
+
+.main {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+.remaining {
+	position:absolute;
+	bottom:10%;
+	left:35%;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+}
+</style>
+</head>
+<body onload="_init();">
+<h1 style="color:red;text-align:center;">Countdown Timer</h1>
+<br><br><br>
+<form name="f">
+<div class="main">
+<span class="textinput">
+Hours <input type="text" name="hours" value="0" size="2" maxlength="2"></span>
+<br>
+<span class="textinput">
+Minutes <input type="text" name="minutes" value="0" size="2" maxlength="2"></span>
+<br>
+<span class="textinput">
+Seconds <input type="text" name="seconds" value="0" size="2" maxlength="2"></span>
+<input type="button" name="_button" value="" class="buttoninput">
+</div>
+<div class="remaining">
+<span class="textinput">
+Time Remaining <input type="text" readonly name="remaining" value="0" size="8" maxlength="8"></span>
+</div>
+</form>
+</body>
+</html>

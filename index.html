@@ -2,13 +2,6 @@
 <html>
 <head>
 <title> Index </title>
-<script type='text/javascript'>
-	<!--
-		$.getJSON('//freegeoip.net/json/?callback=?', function(data) {
-  document.getElementsByClassName("ip").innerHTML=((JSON.stringify(data, null, 2))['ip'];
-});
-	//-->
-</script>
 <style>
 	.navbar {
 		list-style-type: none;
@@ -37,12 +30,6 @@
 	.navbar .active{
 		background-color: #0061ff;
 	}
-	.footer {
-		position: absolute;
-		bottom: 1%;
-		right: 1%;
-		font-size: 1.3em;
-	}
 </style>
 </head>
 <body>
@@ -52,6 +39,5 @@
 		<li><a href="stopwatch.html">Stopwatch</a></li>
 		<li><a href="citation.html">Citation Helper</a></li>
 	</ul>
-	<span class="footer">Your IP: <span class="ip"></span></span>
 </body>
 </html>

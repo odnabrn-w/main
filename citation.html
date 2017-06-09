@@ -84,7 +84,7 @@ function process(){
 		border-radius: 5px;
 		box-sizing: border-box;
 	}
-	input[type=button] {
+	input[type=button], input[type=reset] {
 		display: inline-block;
 		background-color: green;
 		color: white;
@@ -147,7 +147,7 @@ Format<select name="toggle">
 <input type="button" name="submit" onclick="process();" value="Cite!">
 <br><br>
 <input type="text" name="citation" readonly style="font-size:0.75em;">
-<input type="button" name="clearbutton" value="Clear Form" onclick="document.forms[0].reset(); document.forms[0].toggle.value='MLA':">
+<input type="reset" name="clearbutton" value="Clear Form">
 </div>
 </center>
 </form>

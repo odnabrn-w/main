@@ -3,29 +3,65 @@
 <head>
 <title> Index </title>
 <style>
-  button {
-    padding: 5px;
-    border: 2px solid #dddddd;
-    border-radius: 3px;
-    color: #000000;
-    text-decoration:none;
-    text-align:center;
-  }
+    button {
+		padding: 5px;
+		border: 2px solid #dddddd;
+		border-radius: 3px;
+		color: #000000;
+		text-decoration:none;
+		text-align:center;
+    }
+	.countdown .countdowninfo {
+		display:none;
+		border: 2px solid black;
+		border-radius: 2px;
+		padding: 3px;
+	}
+	.countdown:hover .countdowninfo {
+		display:block;
+		position:absolute;
+	}
+	.stopwatch .stopwatchinfo {
+		display:none;
+		border: 2px solid black;
+		border-radius: 2px;
+		padding: 3px;
+	}
+	.stopwatch:hover .stopwatchinfo {
+		display:block;
+		position:absolute;
+	}
+	.citation .citationinfo {
+		display:none;
+		border: 2px solid black;
+		border-radius: 2px;
+		padding: 3px;
+	}
+	.citation:hover .citationinfo {
+		display:block;
+		position:absolute;
+	}
 </style>
 </head>
 <body>
   <table border="0">
     <tr>
-      <td>
-        <button onclick="window.location.href='countdown.html';">Countdown</button>
-      </td>
-      <td>
-        <button onclick="window.location.href='stopwatch.html';">Stopwatch</button>
-      </td>
-      <td>
-        <button onclick="window.location.href='citation.html';">Citation Helper</button>
-      </td>
-    </tr>
-  </table>
+		<td class="countdown">
+			<button onclick="window.location.href='countdown.html';">Countdown</button>
+			<span class="countdowninfo">Countdown is an alarm that you can set<br>
+			based on hours, minutes, and seconds</span>
+		</td>
+		<td class="stopwatch">
+			<button onclick="window.location.href='stopwatch.html';">Stopwatch</button>
+			<span class="stopwatchinfo">Stopwatch is a tool that you can use to<br>
+			record the time that anything takes</span>
+		</td>
+		<td class="citation">
+			<button onclick="window.location.href='citation.html';">Citation Helper</button>
+			<span class="citationinfo">Citation is a tool that you can use to<br>
+			make citing apa and mla easier</span>
+		</td>
+	</tr>
+	</table>
 </body>
 </html>

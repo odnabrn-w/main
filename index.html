@@ -3,65 +3,42 @@
 <head>
 <title> Index </title>
 <style>
-    button {
-		padding: 5px;
-		border: 2px solid #dddddd;
-		border-radius: 3px;
-		color: #000000;
-		text-decoration:none;
-		text-align:center;
-    }
-	.countdown .countdowninfo {
-		display:none;
-		border: 2px solid black;
-		border-radius: 2px;
-		padding: 3px;
+	.navbar {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #2870e2;
 	}
-	.countdown:hover .countdowninfo {
-		display:block;
-		position:absolute;
+
+	.navbar li {
+		float: left;
 	}
-	.stopwatch .stopwatchinfo {
-		display:none;
-		border: 2px solid black;
-		border-radius: 2px;
-		padding: 3px;
+
+	.navbar li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
 	}
-	.stopwatch:hover .stopwatchinfo {
-		display:block;
-		position:absolute;
+
+	.navbar li a:hover {
+		background-color: #0061ff;
 	}
-	.citation .citationinfo {
-		display:none;
-		border: 2px solid black;
-		border-radius: 2px;
-		padding: 3px;
-	}
-	.citation:hover .citationinfo {
-		display:block;
-		position:absolute;
+	
+	.navbar .active{
+		background-color: #0061ff;
 	}
 </style>
 </head>
 <body>
-  <table border="0">
-    <tr>
-		<td class="countdown">
-			<button onclick="window.location.href='countdown.html';">Countdown</button>
-			<span class="countdowninfo">Countdown is an alarm that you can set<br>
-			based on hours, minutes, and seconds</span>
-		</td>
-		<td class="stopwatch">
-			<button onclick="window.location.href='stopwatch.html';">Stopwatch</button>
-			<span class="stopwatchinfo">Stopwatch is a tool that you can use to<br>
-			record the time that anything takes</span>
-		</td>
-		<td class="citation">
-			<button onclick="window.location.href='citation.html';">Citation Helper</button>
-			<span class="citationinfo">Citation is a tool that you can use to<br>
-			make citing apa and mla easier</span>
-		</td>
-	</tr>
-	</table>
+	<ul class="navbar">
+		<li><a href="index.html" class="active">Home</a></li>
+		<li><a href="countdown.html">Countdown</a></li>
+		<li><a href="stowpatch.html">Stopwatch</a></li>
+		<li><a href="citation.html">Citation Helper</a></li>
+	</ul>
+	
 </body>
 </html>

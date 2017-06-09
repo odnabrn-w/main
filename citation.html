@@ -93,9 +93,42 @@ function process(){
 		width: 100%;
 		height: 3.5%;
 	}
+	.navbar {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #2870e2;
+	}
+
+	.navbar li {
+		float: left;
+	}
+
+	.navbar li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+
+	.navbar li a:hover {
+		background-color: #0061ff;
+	}
+	
+	.navbar .active{
+		background-color: #0061ff;
+	}
 </style>
 </head>
 <body>
+	<ul class="navbar">
+		<li><a href="index.html" class="active">Home</a></li>
+		<li><a href="countdown.html">Countdown</a></li>
+		<li><a href="stowpatch.html">Stopwatch</a></li>
+		<li><a href="citation.html">Citation Helper</a></li>
+	</ul>
 <form name="f">
 <center>
 <div>

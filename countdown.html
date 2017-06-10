@@ -35,7 +35,7 @@ var Timer = {
 			if(hours.toString().length==1) hours = "0"+hours;
 			// minutes
 			if(Timer.Remaining>=60){
-				minutes=Math.floor((Timer.Remaining/60)-(hours * 60));
+				minutes=Math.floor((Timer.Remaining-(hours * 3600)/60);
 			} else minutes=0;
 			if(minutes.toString().length==1) minutes = "0"+minutes;
 			// seconds
@@ -46,7 +46,7 @@ var Timer = {
 		} Timer.Remaining -= 1;
 	},
 	forcestop: function(){
-		Timer.Continue=0;
+		Timer.Remaining=1;
 	},
 	reset: function(){
 		Timer.Remaining=0;

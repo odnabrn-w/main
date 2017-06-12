@@ -43,6 +43,7 @@ var Timer = {
 			if(seconds.toString().length==1) seconds = "0"+seconds;
 			Timer.TimeString=hours+":"+minutes+":"+seconds;
 			document.forms[0].remaining.value=Timer.TimeString;
+			console.log("hours: "+hours+"\nminutes: "+minutes+"\nseconds: "+seconds);
 		} Timer.Remaining -= 1;
 	},
 	forcestop: function(){

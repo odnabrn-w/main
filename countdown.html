@@ -81,7 +81,7 @@ function toggleButton(x){
 	if(buttontoggle="start"){
 		document.forms[0]._button.value="Start Countdown";
 		document.forms[0]._button.onclick=function(){
-			Timer.start((3600 * document.forms[0].hours.value) + (60 * document.forms[0].minutes.value) + document.forms[0].seconds.value);
+			Timer.start((360 * document.forms[0].hours.value) + (6 * document.forms[0].minutes.value) + document.forms[0].seconds.value);
 		}
 	} else if(buttontoggle="stop"){
 		document.forms[0]._button.value="Stop Timer";

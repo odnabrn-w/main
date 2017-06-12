@@ -32,12 +32,12 @@ var Timer = {
 			if(Timer.Remaining>=3600){
 				hours=Math.floor(Timer.Remaining/3600);
 			} else hours=0;
-			if(hours.toString().length==1) hours = "0"+hours;
+			if(hours<10) hours = "0"+hours.toString();
 			// minutes
 			if(Timer.Remaining>=60){
 				minutes=Math.floor((Timer.Remaining-(hours * 3600))/60);
 			} else minutes=0;
-			if(minutes.toString().length==1) minutes = "0"+minutes;
+			if(minutes<10) minutes = "0"+minutes.toString();
 			// seconds
 			seconds=(Timer.Remaining-(60 * minutes)-(3600 * hours));
 			if(seconds.toString().length==1) seconds = "0"+seconds;

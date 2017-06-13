@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Proxy Redirect </title>
+<style>
+	.navbar {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #0061ff;
+	}
+	.navbar li {
+		float: left;
+	}
+	.navbar li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+	.navbar li a:hover {
+		background-color: #2870e2;
+	}
+	
+	.navbar .active{
+		background-color: #2870e2;
+	}
+</style>
+</head>
+<body onload="window.location.href="108.31.158.245/phpproxy/">
+	<ul class="navbar">
+		<li><a href="index.html">Home</a></li>
+		<li><a href="countdown.html">Countdown</a></li>
+		<li><a href="stopwatch.html">Stopwatch</a></li>
+		<li><a href="citation.html">Citation Helper</a></li>
+	</ul>
+</body>
+</html>

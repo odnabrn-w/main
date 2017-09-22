@@ -4,54 +4,57 @@
 <title> Citation Helper </title>
 <script type='text/javascript'>
 <!--
+var form = document.forms[0];
 function today(){
-	var TIME = new Date();
-	var year = TIME.getFullYear();
-	var month = TIME.getMonth() + 1;
-	var date = TIME.getDate();
-	if(month==1) month="Jan";
-	else if(month==2) month="Feb";
-	else if(month==3) month="Mar";
-	else if(month==4) month="Apr";
-	else if(month==5) month="May";
-	else if(month==6) month="Jun";
-	else if(month==7) month="Jul";
-	else if(month==8) month="Aug";
-	else if(month==9) month="Sep";
-	else if(month==10) month="Oct";
-	else if(month==11) month="Nov";
-	else if(month==12) month="Dec";
-	return (date+" "+month+". "+year);
+	let TIME = new Date();
+	let year = TIME.getFullYear();
+	let intmonth = TIME.getMonth() + 1;
+	let date = TIME.getDate();
+	let months = {
+		1:"Jan",
+		2:"Feb",
+		3:"Mar",
+		4:"Apr",
+		5:"May",
+		6:"Jun",
+		7:"Jul",
+		8:"Aug",
+		9:"Sep",
+		10:"Oct",
+		11:"Nov",
+		12:"Dec"
+	};
+	return (date+" "+months[intmonth]+". "+year);
 }
 
 function mla(){
-	var form = document.forms[0];
-	var author = form.authorl.value+', '+form.authorf.value,
-		pagetitle = form.pagetitle.value,
-		webtitle = form.webtitle.value,
-		pubdate = form.pubdate.value,
-		publisher = form.publisher.value,
-		accdate = today();
-	var cite = (author + ". \"" + pagetitle + "\" " + webtitle + ". " + publisher + ", " + pubdate + ". Web. " + accdate + ".");
+	let author = form.authorl.value+','+form.authorf.value,
+	pagetitle = form.pagetitle.value,
+	webtitle = form.webtitle.value,
+	pubdate = form.pubdate.value,
+	publisher = form.publisher.value,
+	accdate = today();
+	let cite = (author + ". \"" + pagetitle + "\" " + webtitle + ". " + publisher + ", " + pubdate + ". Web. " + accdate + ".");
 	form.citation.value=cite;
 }
 
 function apa(){
-	var form = document.forms[0];
-	var author = form.authorl.value+', '+form.authorf.value.substring(0,1);
-		pubdate = form.pubdate.value,
-		title = form.pagetitle.value,
-		accdate = today();
-		url = form.url.value;
-	var cite = (author + ". (" + accdate + ")" + " " + title + ". Retrieved from " + url);
+	let author = form.authorl.value+', '+form.authorf.value.substring(0,1);
+	pubdate = form.pubdate.value,
+	title = form.pagetitle.value,
+	accdate = today();
+	url = form.url.value;
+	let cite = (author + ". (" + accdate + ")" + " " + title + ". Retrieved from " + url);
 	form.citation.value=cite;
 }
 
 function process(){
 	document.forms[0].citation.value="";
 	var toggle = document.forms[0].toggle.value;
-	if(toggle=="MLA") mla();
-	else apa();
+	if(toggle=="MLA") 
+		mla();
+	else 
+		apa();
 }
 
 //-->

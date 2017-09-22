@@ -80,12 +80,12 @@ function toggleButton(x){
 	/******************************************************/
 	if(buttontoggle="start"){
 		document.forms[0]._button.value="Start Countdown";
-		document.forms[0]._button.onclick=function(){
+		document.forms[0]._button.onclick=()=>{
 			Timer.start((360 * document.forms[0].hours.value) + (6 * document.forms[0].minutes.value) + document.forms[0].seconds.value);
 		}
 	} else if(buttontoggle="stop"){
 		document.forms[0]._button.value="Stop Timer";
-		document.forms[0]._button.onclick=function(){
+		document.forms[0]._button.onclick=()=>{
 			Timer.forcestop();
 		}
 	}
@@ -132,33 +132,33 @@ input[type=button]:hover {
 	background-color: #f2f2f2;
 	padding: 20px;
 }
-	.navbar {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-		overflow: hidden;
-		background-color: #0061ff;
-	}
+.navbar {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #0061ff;
+}
 
-	.navbar li {
-		float: left;
-	}
+.navbar li {
+	float: left;
+}
 
-	.navbar li a {
-		display: block;
-		color: white;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
-	}
+.navbar li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
 
-	.navbar li a:hover {
-		background-color: #2870e2;
-	}
-	
-	.navbar .active{
-		background-color: #2870e2;
-	}
+.navbar li a:hover {
+	background-color: #2870e2;
+}
+
+.navbar .active{
+	background-color: #2870e2;
+}
 </style>
 </head>
 <body onload="_init();">

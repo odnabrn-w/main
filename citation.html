@@ -6,11 +6,11 @@
 <!--
 var form = document.forms[0];
 function today(){
-	let TIME = new Date();
-	let year = TIME.getFullYear();
-	let intmonth = TIME.getMonth() + 1;
-	let date = TIME.getDate();
-	let months = {
+	var TIME = new Date();
+	var year = TIME.getFullYear();
+	var intmonth = TIME.getMonth() + 1;
+	var date = TIME.getDate();
+	var months = {
 		1:"Jan",
 		2:"Feb",
 		3:"Mar",
@@ -28,7 +28,7 @@ function today(){
 }
 
 function mla(){
-	let author = form.authorl.value+','+form.authorf.value,
+	var author = form.authorl.value+','+form.authorf.value,
 	pagetitle = form.pagetitle.value,
 	webtitle = form.webtitle.value,
 	pubdate = form.pubdate.value,
@@ -39,7 +39,7 @@ function mla(){
 }
 
 function apa(){
-	let author = form.authorl.value+', '+form.authorf.value.substring(0,1);
+	var author = form.authorl.value+', '+form.authorf.value.substring(0,1);
 	pubdate = form.pubdate.value,
 	title = form.pagetitle.value,
 	accdate = today();

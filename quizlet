@@ -1,7 +1,3 @@
-<html>
-<body>
 for(i=0;i<=document.getElementsByClassName("MatchModeQuestionScatterTile").length;i++){
 	$('.MatchModeQuestionScatterTile').addClass('MatchModeQuestionScatterTile is-dragged').removeClass('.MatchModeQuestionScatterTile');
 	document.getElementsByClassName("MatchModeQuestionScatterTile")[i].style="transform: translate(500px,500px); z-index: "+(((i+1)%2)+1).toString()+";";}
-</body>
-</html>

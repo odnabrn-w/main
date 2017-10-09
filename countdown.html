@@ -22,7 +22,7 @@ var Timer = {
 		if(Timer.Remaining==0){
 			clearInterval(Timer.IntervalContainer);
 			Timer.IntervalContainer=null;
-			Timer.Ringer.play();
+			setImmediate(function(){Timer.Ringer.play();});
 			window.alert("Your countdown is complete!");
 			document.forms[0].remaining.value="00:00:00"
 			Timer.reset();

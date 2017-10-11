@@ -28,6 +28,7 @@ function today(){
 }
 
 function mla(){
+	var form = document.forms[0];
 	var author = form.authorl.value+','+form.authorf.value,
 	pagetitle = form.pagetitle.value,
 	webtitle = form.webtitle.value,
@@ -39,6 +40,7 @@ function mla(){
 }
 
 function apa(){
+	var form = document.forms[0];
 	var author = form.authorl.value+', '+form.authorf.value.substring(0,1);
 	pubdate = form.pubdate.value,
 	title = form.pagetitle.value,
